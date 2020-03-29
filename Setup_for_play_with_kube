@@ -1,0 +1,17 @@
+ode1 ~]$ history
+    1  cls
+    2   kubeadm init --apiserver-advertise-address $(hostname -i)
+    3   kubectl apply -n kube-system -f     "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 |tr -d '\n')"
+    4  cls
+    5   kubectl apply -f https://raw.githubusercontent.com/kubernetes/website/master/content/en/examples/application/nginx-app.yaml
+    6  kubeadm token list
+    7  kubectl get nodes
+    8  kubectl get ndoes
+    9  kubectl get nodes
+   10  cat /opt/weave-kube
+   11  kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/k8s-manifests/kube-flannel-legacy.yml
+   12  kubectl get nodes
+
+On node :
+
+    8  kubeadm join --discovery-token-unsafe-skip-ca-verification --token=ng668z.33gqzeaorertu0q3 192.168.0.8:6443
