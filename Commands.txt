@@ -1,0 +1,38 @@
+Kubernetes
+
+kubectl create namespace vishal-ns
+kubectl attach tomcat-latest -i
+kubectl label pod tomcat-latest testlab=vishal. ## add label to existing 
+kubectl get pod tomcat-latest -o wide
+kubectl run -i --tty busybox --image=busybox --restart=Never -- sh ## runs pod
+kubectl config set-context --current --namespace=my-ns
+kubectl config view --minify ### Shows configuration of current context only
+kubectl config set-context --current --namespace=default
+kubectl config delete-context vishal_clus
+kubectl config use-context minikube
+kubectl config get-contexts 
+Kubectl config view
+Kubectl cluster-info
+Kubectl tunnel 
+kubectl port-forward tomcat-latest 9091:8081 ## port forward to local from tube
+kubectl exec tomcat-latest -- sudo netstat   ## run command in pod
+Kubectl get namespace
+Kubectl get pod
+Kubectl get svc -n my-ns
+kubectl get services -A
+Kubectl apply -f pod.yaml 
+Kubeclt create -f pod.yaml 
+kubectl expose pod tomcat-latest -nmy-ns --type=LoadBalancer --port=8082. ##creates service of type LB
+kubectl expose pod tomcat-latest -nmy-ns --type=NodePort --name tomcat-servuce
+kubectl describe pod tomcat-latest -n my-ns
+kubectl describe service/tomcat-latest -n my-ns
+kubectl describe pod/tomcat-latest -n my-ns
+kubectl logs tomcat-latest
+kubectl logs tomcat-latest -f ### for tailing 
+kubectl scale deployment tomcat-latest --replicas=2
+kubectl expose pod tomcat-latest2—type=NodePort
+kubectl run http --image=katacoda/docker-http-server:latest --replicas=1
+kubectl expose deployment http --external-ip="172.17.0.42" --port=8000 --target-port=80 ## with service
+kubectl run httpexposed --image=katacoda/docker-http-server:latest --replicas=1 --port=80 --hostport=8001  ## without service
+minikube service tomcat-latest2 -n my-ns  --url 
+
